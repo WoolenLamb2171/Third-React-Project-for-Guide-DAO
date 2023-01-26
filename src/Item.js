@@ -26,10 +26,14 @@ export default function Item({ data }, ...rest) {
         <img className="image" src={image} />
         <p>{price}$</p>
         <div className="item-quantity">
-          <button onClick={HandleDecreaseCounterClick} className="item-button">
+          <button
+            disabled={quantity === 0}
+            onClick={HandleDecreaseCounterClick}
+            className="item-button"
+          >
             -
           </button>
-          <h3 className="item-total">{quantity}</h3>
+          {quantity !== 0 && <h3 className="item-total">{quantity}</h3>}
           <button onClick={HandleIncreaseCounterClick} className="item-button">
             +
           </button>
